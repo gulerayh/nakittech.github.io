@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cup2026 - Privacy Policy</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f6f7;
+            color: #1a1f2e;
+            line-height: 1.7;
+        }
+        header {
+            background: #1a1f2e;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+        header h1 span { color: #E8192C; }
+        header p {
+            color: #8b95a8;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(26,31,46,0.07);
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1f2e;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E8192C;
+            display: inline-block;
+        }
+        p { font-size: 15px; color: #444; margin-bottom: 12px; }
+        ul {
+            margin: 10px 0 12px 20px;
+            font-size: 15px;
+            color: #444;
+        }
+        ul li { margin-bottom: 6px; }
+        .badge {
+            display: inline-block;
+            background: rgba(232,25,44,0.08);
+            color: #E8192C;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .lang-switch button {
+            border: 2px solid #1a1f2e;
+            background: transparent;
+            color: #1a1f2e;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 6px;
+            transition: all 0.2s;
+        }
+        .lang-switch button.active {
+            background: #1a1f2e;
+            color: #ffffff;
+        }
+        .section-en, .section-tr { display: block; }
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: #8b95a8;
+            background: #1a1f2e;
+        }
+        footer a { color: #F5A623; text-decoration: none; }
+        .updated {
+            text-align: center;
+            font-size: 13px;
+            color: #8b95a8;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cup<span>2026</span></h1>
+    <p>Privacy Policy · Gizlilik Politikası</p>
+</header>
+
+<div class="container">
+
+    <div class="lang-switch">
+        <button class="active" onclick="showLang('en', this)">English</button>
+        <button onclick="showLang('tr', this)">Türkçe</button>
+    </div>
+
+    <p class="updated" id="updated-en">Last updated: May 2026</p>
+    <p class="updated" id="updated-tr" style="display:none">Son güncelleme: Mayıs 2026</p>
+
+    <!-- ENGLISH -->
+    <div id="lang-en">
+
+        <div class="card">
+            <span class="badge">Overview</span>
+            <h2>Introduction</h2>
+            <p>Welcome to Cup2026, developed by NakitTech. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application.</p>
+            <p>By using Cup2026, you agree to the practices described in this policy. If you do not agree, please do not use the app.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Data Collection</span>
+            <h2>Information We Collect</h2>
+            <p>Cup2026 collects minimal data necessary to provide its features:</p>
+            <ul>
+                <li><strong>Anonymous User ID:</strong> We generate an anonymous identifier using Firebase Anonymous Authentication. This ID is not linked to your name, email, or any personal information.</li>
+                <li><strong>Display Name (optional):</strong> If you choose to appear on leaderboards (Match Predictor, Fantasy Squad, Daily Quiz), you may enter a display name. This is entirely optional.</li>
+                <li><strong>Predictions & Votes:</strong> Your match predictions, Winning 11 votes, and Fantasy Squad selections are stored in Firebase Firestore to calculate points and display leaderboards.</li>
+                <li><strong>Quiz Progress:</strong> Your daily quiz answers, streak, and accuracy are stored locally on your device (AsyncStorage) and optionally synced to Firebase for leaderboard ranking.</li>
+                <li><strong>Bingo Cards:</strong> Your bingo card and marked squares are stored locally on your device only.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Data Use</span>
+            <h2>How We Use Your Information</h2>
+            <p>We use the collected information solely to:</p>
+            <ul>
+                <li>Display your points and rank on leaderboards</li>
+                <li>Save your predictions and squad selections across sessions</li>
+                <li>Calculate your fantasy and prediction points after matches</li>
+                <li>Maintain your daily quiz streak</li>
+            </ul>
+            <p>We do not use your data for advertising, profiling, or any commercial purpose beyond providing the app's features.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Third Party</span>
+            <h2>Third-Party Services</h2>
+            <p>Cup2026 uses the following third-party services:</p>
+            <ul>
+                <li><strong>Firebase (Google):</strong> Anonymous authentication, Firestore database for leaderboards and predictions. <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
+                <li><strong>API-Football:</strong> Live match data, standings, and player statistics. No personal data is shared.</li>
+                <li><strong>The Guardian API / GNews / RSS Feeds:</strong> News headlines. No personal data is shared.</li>
+                <li><strong>Anthropic Claude API:</strong> AI Commentator feature — your typed match description is sent to generate commentary. No personal data is included. <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Storage</span>
+            <h2>Data Storage & Security</h2>
+            <ul>
+                <li>All data transmitted to Firebase is encrypted in transit using HTTPS/TLS.</li>
+                <li>Local data is stored in your device's AsyncStorage and remains on your device.</li>
+                <li>Firebase data is stored on Google's secure servers in accordance with their security standards.</li>
+                <li>We do not store passwords — the app uses anonymous authentication only.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Your Rights</span>
+            <h2>Your Rights & Data Deletion</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Request deletion of all your data stored in Firebase</li>
+                <li>Clear local app data at any time by uninstalling the app</li>
+                <li>Use the app without entering any display name</li>
+            </ul>
+            <p>To request data deletion, contact us at: <strong>privacy@nakittech.nl</strong></p>
+            <p>We will process deletion requests within 30 days.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Children</span>
+            <h2>Children's Privacy</h2>
+            <p>Cup2026 is not directed at children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us immediately.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Updates</span>
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the date at the top of this page. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Contact</span>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact:</p>
+            <ul>
+                <li><strong>Company:</strong> NakitTech</li>
+                <li><strong>Email:</strong> privacy@nakittech.nl</li>
+                <li><strong>Website:</strong> nakittech.nl</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- TURKISH -->
+    <div id="lang-tr" style="display:none">
+
+        <div class="card">
+            <span class="badge">Genel Bakış</span>
+            <h2>Giriş</h2>
+            <p>NakitTech tarafından geliştirilen Cup2026'ya hoş geldiniz. Bu Gizlilik Politikası, mobil uygulamamızı kullandığınızda bilgilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklamaktadır.</p>
+            <p>Cup2026'yı kullanarak bu politikada açıklanan uygulamaları kabul etmiş olursunuz. Kabul etmiyorsanız lütfen uygulamayı kullanmayın.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Veri Toplama</span>
+            <h2>Topladığımız Bilgiler</h2>
+            <p>Cup2026, özelliklerini sunmak için gereken minimum düzeyde veri toplar:</p>
+            <ul>
+                <li><strong>Anonim Kullanıcı Kimliği:</strong> Firebase Anonim Kimlik Doğrulama kullanarak anonim bir tanımlayıcı oluşturuyoruz. Bu kimlik adınız, e-postanız veya herhangi bir kişisel bilginizle ilişkilendirilmez.</li>
+                <li><strong>Görünen Ad (isteğe bağlı):</strong> Sıralamada (Maç Tahmini, Fantezi Kadro, Günlük Quiz) görünmek istiyorsanız bir görünen ad girebilirsiniz. Bu tamamen isteğe bağlıdır.</li>
+                <li><strong>Tahminler ve Oylar:</strong> Maç tahminleriniz, En İyi 11 oylarınız ve Fantezi Kadro seçimleriniz, puanları hesaplamak ve sıralamaları göstermek için Firebase Firestore'da saklanır.</li>
+                <li><strong>Quiz İlerlemesi:</strong> Günlük quiz cevaplarınız, seriniz ve isabet oranınız cihazınızda yerel olarak (AsyncStorage) saklanır ve isteğe bağlı olarak sıralama için Firebase ile senkronize edilir.</li>
+                <li><strong>Bingo Kartları:</strong> Bingo kartınız ve işaretlediğiniz kareler yalnızca cihazınızda yerel olarak saklanır.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Veri Kullanımı</span>
+            <h2>Bilgilerinizi Nasıl Kullanıyoruz</h2>
+            <p>Toplanan bilgileri yalnızca şu amaçlarla kullanıyoruz:</p>
+            <ul>
+                <li>Sıralamalarda puanlarınızı ve sıranızı göstermek</li>
+                <li>Tahminlerinizi ve kadro seçimlerinizi oturumlar arasında kaydetmek</li>
+                <li>Maçların ardından fantezi ve tahmin puanlarınızı hesaplamak</li>
+                <li>Günlük quiz serinizi sürdürmek</li>
+            </ul>
+            <p>Verilerinizi reklam, profilleme veya uygulamanın özelliklerini sağlamanın ötesinde herhangi bir ticari amaç için kullanmıyoruz.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Üçüncü Taraf</span>
+            <h2>Üçüncü Taraf Hizmetler</h2>
+            <p>Cup2026 aşağıdaki üçüncü taraf hizmetleri kullanmaktadır:</p>
+            <ul>
+                <li><strong>Firebase (Google):</strong> Anonim kimlik doğrulama, sıralamalar ve tahminler için Firestore veritabanı.</li>
+                <li><strong>API-Football:</strong> Canlı maç verileri, puan durumu ve oyuncu istatistikleri. Kişisel veri paylaşılmaz.</li>
+                <li><strong>The Guardian API / GNews / RSS Akışları:</strong> Haber başlıkları. Kişisel veri paylaşılmaz.</li>
+                <li><strong>Anthropic Claude API:</strong> Yapay Zeka Yorumcu özelliği — yazdığınız maç açıklaması yorum oluşturmak için gönderilir. Kişisel veri içermez.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Depolama</span>
+            <h2>Veri Depolama ve Güvenlik</h2>
+            <ul>
+                <li>Firebase'e iletilen tüm veriler HTTPS/TLS ile şifrelenir.</li>
+                <li>Yerel veriler cihazınızın AsyncStorage'ında saklanır ve cihazınızda kalır.</li>
+                <li>Firebase verileri Google'ın güvenli sunucularında saklanır.</li>
+                <li>Şifre saklamıyoruz — uygulama yalnızca anonim kimlik doğrulama kullanır.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="badge">Haklarınız</span>
+            <h2>Haklarınız ve Veri Silme</h2>
+            <p>Aşağıdaki haklara sahipsiniz:</p>
+            <ul>
+                <li>Firebase'de saklanan tüm verilerinizin silinmesini talep etme</li>
+                <li>Uygulamayı kaldırarak yerel uygulama verilerini istediğiniz zaman temizleme</li>
+                <li>Herhangi bir görünen ad girmeden uygulamayı kullanma</li>
+            </ul>
+            <p>Veri silme talebi için: <strong>privacy@nakittech.nl</strong></p>
+            <p>Silme taleplerini 30 gün içinde işleme alıyoruz.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Çocuklar</span>
+            <h2>Çocukların Gizliliği</h2>
+            <p>Cup2026, 13 yaşın altındaki çocuklara yönelik değildir. 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamıyoruz. 13 yaşın altında bir çocuğun bize kişisel bilgi sağladığını düşünüyorsanız lütfen derhal bizimle iletişime geçin.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">Güncellemeler</span>
+            <h2>Politika Değişiklikleri</h2>
+            <p>Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikleri bu sayfanın üst kısmındaki tarihi güncelleyerek bildireceğiz. Değişikliklerden sonra uygulamayı kullanmaya devam etmek, güncellenmiş politikayı kabul ettiğiniz anlamına gelir.</p>
+        </div>
+
+        <div class="card">
+            <span class="badge">İletişim</span>
+            <h2>Bize Ulaşın</h2>
+            <p>Bu Gizlilik Politikası hakkında sorularınız için:</p>
+            <ul>
+                <li><strong>Şirket:</strong> NakitTech</li>
+                <li><strong>E-posta:</strong> privacy@nakittech.nl</li>
+                <li><strong>Web sitesi:</strong> nakittech.nl</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 NakitTech · Cup2026 · <a href="mailto:privacy@nakittech.nl">privacy@nakittech.nl</a></p>
+</footer>
+
+<script>
+function showLang(lang, btn) {
+    document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('lang-tr').style.display = lang === 'tr' ? 'block' : 'none';
+    document.getElementById('updated-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('updated-tr').style.display = lang === 'tr' ? 'block' : 'none';
+    document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
