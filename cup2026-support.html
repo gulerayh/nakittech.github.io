@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cup2026 - Support</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f6f7;
+            color: #1a1f2e;
+            line-height: 1.7;
+        }
+        header {
+            background: #1a1f2e;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+        header h1 span { color: #E8192C; }
+        header p {
+            color: #8b95a8;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(26,31,46,0.07);
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1f2e;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E8192C;
+            display: inline-block;
+        }
+        p { font-size: 15px; color: #444; margin-bottom: 12px; }
+        ul {
+            margin: 10px 0 12px 20px;
+            font-size: 15px;
+            color: #444;
+        }
+        ul li { margin-bottom: 8px; }
+        .badge {
+            display: inline-block;
+            background: rgba(232,25,44,0.08);
+            color: #E8192C;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .lang-switch button {
+            border: 2px solid #1a1f2e;
+            background: transparent;
+            color: #1a1f2e;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 6px;
+            transition: all 0.2s;
+        }
+        .lang-switch button.active {
+            background: #1a1f2e;
+            color: #ffffff;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: #E8192C;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(26,31,46,0.08);
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .faq-q {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1f2e;
+            margin-bottom: 6px;
+        }
+        .faq-a {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        .updated {
+            text-align: center;
+            font-size: 13px;
+            color: #8b95a8;
+            margin-bottom: 24px;
+        }
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+            color: #8b95a8;
+            background: #1a1f2e;
+        }
+        footer a { color: #F5A623; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cup<span>2026</span></h1>
+    <p>Support · Destek</p>
+</header>
+
+<div class="container">
+
+    <div class="lang-switch">
+        <button class="active" onclick="showLang('en', this)">English</button>
+        <button onclick="showLang('tr', this)">Türkçe</button>
+    </div>
+
+    <p class="updated" id="updated-en">Last updated: May 2026</p>
+    <p class="updated" id="updated-tr" style="display:none">Son güncelleme: Mayıs 2026</p>
+
+    <!-- ENGLISH -->
+    <div id="lang-en">
+
+        <div class="card">
+            <span class="badge">Welcome</span>
+            <h2>About Cup2026</h2>
+            <p>Cup2026 is your all-in-one companion for the FIFA World Cup 2026, hosted across the USA, Canada, and Mexico. The app includes live scores, news, predictions, fantasy squad, daily quiz, AI commentator, travel guide, phrase translator, jersey customizer and more.</p>
+            <p>Available in English and Turkish. Free to download.</p>
+            <p><em>This app is not affiliated with or endorsed by FIFA or any official World Cup organization.</em></p>
+        </div>
+
+        <div class="card">
+            <span class="badge">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">How do I change the app language?</div>
+                <div class="faq-a">Go to Settings (gear icon on the Stats screen) and tap the Language toggle to switch between English and Turkish.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Why is the Stats Hub showing "Tournament begins June 11"?</div>
+                <div class="faq-a">Live scores and standings will be available once the tournament starts on June 11, 2026. Check back then for live data.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">How does the Daily Quiz work?</div>
+                <div class="faq-a">You get 5 new questions every day. Questions reset at midnight UTC. You can watch a rewarded ad to unlock additional attempts after completing your daily quiz.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Why does the AI Commentator require watching an ad?</div>
+                <div class="faq-a">The AI Commentator uses real AI technology that has a small cost per generation. You get 1 free generation per day. Watch a short ad to unlock up to 2 more. Thank you for your support!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Can I change my Fantasy Squad after locking it?</div>
+                <div class="faq-a">No — once you lock your squad it cannot be changed. This keeps the competition fair for all players.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">How do I set my display name for leaderboards?</div>
+                <div class="faq-a">You can set your display name when you first open the app, or go to Settings and tap "Display Name" to change it at any time.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">The app is showing ads — how do I manage them?</div>
+                <div class="faq-a">Cup2026 is free and supported by ads. Banner ads appear at the bottom of screens. Interstitial ads appear occasionally during navigation. Rewarded ads are optional and unlock extra features.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">How do I request deletion of my data?</div>
+                <div class="faq-a">Email us at privacy@nakittech.nl and we will delete your data within 30 days. You can also uninstall the app to remove all locally stored data from your device.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge">Contact</span>
+            <h2>Get in Touch</h2>
+            <p>Having trouble with the app? Found a bug? We'd love to hear from you.</p>
+            <p>Email us and we'll get back to you as soon as possible.</p>
+            <a href="mailto:support@nakittech.nl" class="contact-btn">✉️ Contact Support</a>
+        </div>
+
+        <div class="card">
+            <span class="badge">Legal</span>
+            <h2>Privacy Policy</h2>
+            <p>Read our full privacy policy to understand how we handle your data.</p>
+            <a href="https://gulerayh.github.io/nakittech.github.io/cup2026-privacy.html" 
+               style="color:#E8192C; font-weight:600;">
+               View Privacy Policy →
+            </a>
+        </div>
+
+    </div>
+
+    <!-- TURKISH -->
+    <div id="lang-tr" style="display:none">
+
+        <div class="card">
+            <span class="badge">Hoş Geldiniz</span>
+            <h2>Cup2026 Hakkında</h2>
+            <p>Cup2026, ABD, Kanada ve Meksika'da düzenlenen FIFA Dünya Kupası 2026 için hepsi bir arada rehber uygulamanızdır. Uygulama; canlı skorlar, haberler, tahminler, fantezi kadro, günlük quiz, yapay zeka yorumcu, seyahat rehberi, taraftar çevirmen, forma tasarımcı ve daha fazlasını içerir.</p>
+            <p>İngilizce ve Türkçe mevcuttur. Ücretsiz indir.</p>
+            <p><em>Bu uygulama FIFA veya herhangi bir resmi Dünya Kupası organizasyonuyla bağlantılı veya onaylı değildir.</em></p>
+        </div>
+
+        <div class="card">
+            <span class="badge">SSS</span>
+            <h2>Sık Sorulan Sorular</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">Uygulama dilini nasıl değiştirebilirim?</div>
+                <div class="faq-a">Ayarlar ekranına gidin (İstatistik ekranındaki dişli simgesi) ve dil geçiş düğmesine dokunarak İngilizce ile Türkçe arasında geçiş yapın.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">İstatistikler ekranı neden "Turnuva 11 Haziran'da başlıyor" diyor?</div>
+                <div class="faq-a">Canlı skorlar ve puan durumu, turnuva 11 Haziran 2026'da başladıktan sonra kullanılabilir olacaktır.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Günlük Quiz nasıl çalışır?</div>
+                <div class="faq-a">Her gün 5 yeni soru alırsınız. Sorular gece yarısı UTC'de sıfırlanır. Günlük quizi tamamladıktan sonra ek denemeler açmak için ödüllü reklam izleyebilirsiniz.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Yapay Zeka Yorumcu neden reklam izlemeyi gerektiriyor?</div>
+                <div class="faq-a">Yapay Zeka Yorumcu, her yorum için küçük bir maliyet gerektiren gerçek yapay zeka teknolojisi kullanır. Günde 1 ücretsiz yorum hakkınız vardır. 2 hak daha açmak için kısa bir reklam izleyin. Desteğiniz için teşekkürler!</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Fantezi kadromu kilitledikten sonra değiştirebilir miyim?</div>
+                <div class="faq-a">Hayır — kadronuzu kilitledikten sonra değişiklik yapılamaz. Bu, tüm oyuncular için rekabeti adil tutar.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Sıralama için görünen adımı nasıl ayarlayabilirim?</div>
+                <div class="faq-a">Uygulamayı ilk açtığınızda görünen adınızı ayarlayabilirsiniz. Daha sonra değiştirmek için Ayarlar'a gidin ve "Görünen Ad"a dokunun.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Uygulama reklam gösteriyor — nasıl yönetebilirim?</div>
+                <div class="faq-a">Cup2026 ücretsizdir ve reklamlarla desteklenmektedir. Banner reklamlar ekranların altında görünür. Geçiş reklamları navigasyon sırasında ara sıra görünür. Ödüllü reklamlar isteğe bağlıdır ve ekstra özellikler açar.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Verilerimin silinmesini nasıl talep edebilirim?</div>
+                <div class="faq-a">privacy@nakittech.nl adresine e-posta gönderin, verilerinizi 30 gün içinde sileceğiz. Uygulamayı kaldırarak cihazınızdaki yerel verileri de silebilirsiniz.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="badge">İletişim</span>
+            <h2>Bize Ulaşın</h2>
+            <p>Uygulamada sorun mu yaşıyorsunuz? Bir hata mı buldunuz? Sizden haber almaktan memnuniyet duyarız.</p>
+            <p>Bize e-posta gönderin, en kısa sürede yanıt vereceğiz.</p>
+            <a href="mailto:support@nakittech.nl" class="contact-btn">✉️ Destek ile İletişime Geç</a>
+        </div>
+
+        <div class="card">
+            <span class="badge">Yasal</span>
+            <h2>Gizlilik Politikası</h2>
+            <p>Verilerinizi nasıl işlediğimizi anlamak için gizlilik politikamızı okuyun.</p>
+            <a href="https://gulerayh.github.io/nakittech.github.io/cup2026-privacy.html"
+               style="color:#E8192C; font-weight:600;">
+               Gizlilik Politikasını Görüntüle →
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 NakitTech · Cup2026 · 
+       <a href="mailto:support@nakittech.nl">support@nakittech.nl</a>
+    </p>
+</footer>
+
+<script>
+function showLang(lang, btn) {
+    document.getElementById('lang-en').style.display = 
+        lang === 'en' ? 'block' : 'none';
+    document.getElementById('lang-tr').style.display = 
+        lang === 'tr' ? 'block' : 'none';
+    document.getElementById('updated-en').style.display = 
+        lang === 'en' ? 'block' : 'none';
+    document.getElementById('updated-tr').style.display = 
+        lang === 'tr' ? 'block' : 'none';
+    document.querySelectorAll('.lang-switch button')
+        .forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
