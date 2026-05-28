@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaz Vakti — Yardım ve SSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #2E7D32;
+            --green-light: #4CAF50;
+            --green-pale: #E8F5E9;
+            --green-mid: #C8E6C9;
+            --gold: #F9A825;
+            --text: #1a1a2e;
+            --text-muted: #555;
+            --bg: #FAFAFA;
+            --white: #ffffff;
+            --shadow: 0 4px 24px rgba(46,125,50,0.10);
+            --radius: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #388E3C 100%);
+            color: white;
+            padding: 60px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 250px; height: 250px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .header-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* Wave divider */
+        .wave {
+            display: block;
+            margin-top: -2px;
+        }
+
+        /* Main content */
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* Section cards */
+        .section {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid var(--green-mid);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(46,125,50,0.15);
+        }
+
+        .section-header {
+            background: var(--green-pale);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--green-mid);
+        }
+
+        .section-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--green);
+            flex: 1;
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            color: var(--green);
+            transition: transform 0.3s;
+        }
+
+        .section-body {
+            padding: 24px;
+            display: block;
+        }
+
+        .section-body p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.97rem;
+        }
+
+        .section-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Numbered steps */
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .steps li {
+            counter-increment: step;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .steps li::before {
+            content: counter(step);
+            background: var(--green);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Warning box */
+        .warning-box {
+            background: #FFF8E1;
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-top: 16px;
+            font-size: 0.92rem;
+            color: #5D4037;
+        }
+
+        .warning-box strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #E65100;
+        }
+
+        /* Info box */
+        .info-box {
+            background: var(--green-pale);
+            border-left: 4px solid var(--green);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-top: 16px;
+            font-size: 0.92rem;
+            color: #2E7D32;
+        }
+
+        /* Contact section */
+        .contact {
+            background: linear-gradient(135deg, #1B5E20, #2E7D32);
+            border-radius: var(--radius);
+            padding: 40px 24px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .contact h2 {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            opacity: 0.85;
+            margin-bottom: 20px;
+            font-size: 0.97rem;
+        }
+
+        .contact a {
+            display: inline-block;
+            background: white;
+            color: var(--green);
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.97rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .contact a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8rem; }
+            .section-body { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="header-icon">🕌</span>
+    <h1>Namaz Vakti</h1>
+    <p>Yardım ve Sık Sorulan Sorular</p>
+</header>
+
+<svg class="wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FAFAFA"/>
+</svg>
+
+<main>
+
+    <!-- Section 1 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">📍</span>
+            <span class="section-title">Namaz Vakitleri ve Konum İzni</span>
+        </div>
+        <div class="section-body">
+            <p>Uygulama, bulunduğunuz konuma göre otomatik olarak namaz vakitlerini hesaplar. Diyanet İşleri Başkanlığı hesaplama yöntemi kullanılmaktadır.</p>
+            <p>Konum izni vermeniz gerekmektedir. İzin vermek için ana ekranda beliren "Konum İznini Ver" butonuna dokunun.</p>
+            <p>İsterseniz Ayarlar menüsünden manuel konum da seçebilirsiniz. Vakitler her gün otomatik olarak güncellenir.</p>
+            <div class="info-box">
+                💡 Manuel konum girmek için: Ayarlar → Konum → Manuel Konum bölümünden şehrinizi arayın.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🔔</span>
+            <span class="section-title">Bildirimler</span>
+        </div>
+        <div class="section-body">
+            <p>Her namaz için ayrı ayrı bildirim açıp kapatabilirsiniz. Namazdan 5, 10, 15, 20 veya 30 dakika önce hatırlatıcı alabilirsiniz.</p>
+            <p>Bildirimleri Ayarlar ekranından yönetebilirsiniz. Cuma namazı için özel hatırlatıcı mevcuttur.</p>
+            <div class="warning-box">
+                <strong>⚠️ Bildirimler Çalışmıyor mu?</strong>
+                Samsung ve bazı Android telefonlar, pil tasarrufu için arka planda çalışan uygulamaları kapatabilir. Bildirimlerin düzgün çalışması için:
+                <ol class="steps" style="margin-top:10px;">
+                    <li>Ayarlar → Uygulamalar → Namaz Vakti</li>
+                    <li>Pil → <strong>Kısıtlamasız</strong> seçeneğini seçin</li>
+                </ol>
+                Bu ayarı yaptıktan sonra bildirimler tam zamanında gelecektir.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🧭</span>
+            <span class="section-title">Kıble Pusulası</span>
+        </div>
+        <div class="section-body">
+            <p>Kıble ekranı, cihazınızın pusulasını kullanarak Kabe'nin yönünü gösterir.</p>
+            <p>Pusulayı kullanmak için telefonu yatay tutun ve metal objelerden uzaklaşın. Kabe'ye olan mesafe de gösterilmektedir.</p>
+            <div class="info-box">
+                💡 Pusula doğru çalışmıyorsa telefonu "8" şeklinde hareket ettirerek kalibre edin.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">📿</span>
+            <span class="section-title">Zikir Sayacı</span>
+        </div>
+        <div class="section-body">
+            <p>Zikir ekranında Sübhanallah, Elhamdülillah, Allahu Ekber ve diğer zikirleri sayabilirsiniz.</p>
+            <p>Her sayımda titreşim geri bildirimi alırsınız. 33 ve 99 sayısında özel uyarı verilir. Zikir geçmişiniz kaydedilir.</p>
+        </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">📋</span>
+            <span class="section-title">Namaz Takip</span>
+        </div>
+        <div class="section-body">
+            <p>Ana ekranda her namaz için "Kıldım" veya "Atladım" işaretleyebilirsiniz. Aylık takvimde geçmiş namazlarınızı renkli olarak görebilirsiniz.</p>
+            <p>Yeşil: Kıldım &nbsp;|&nbsp; Kırmızı: Atladım &nbsp;|&nbsp; Gri: İşaretlenmemiş</p>
+        </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🔄</span>
+            <span class="section-title">Kaza Namazı</span>
+        </div>
+        <div class="section-body">
+            <p>Atladığınız namazlar otomatik olarak kaza listesine eklenir. Kaza namazı kıldığınızda listeden silebilirsiniz.</p>
+            <p>90 gün geçmiş kazalar için hatırlatıcı bildirim alırsınız.</p>
+        </div>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🌙</span>
+            <span class="section-title">Ramazan Oruç Takibi</span>
+        </div>
+        <div class="section-body">
+            <p>Ramazan ayında her gün için oruç durumunuzu işaretleyebilirsiniz. Oruç Tuttum, Tutmadım veya Mazeret (hastalık, seyahat vb.) seçenekleri mevcuttur.</p>
+            <p>İmsak ve iftar vakitleri her gün için otomatik olarak gösterilir.</p>
+        </div>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">🔥</span>
+            <span class="section-title">Namaz Serisi (Streak)</span>
+        </div>
+        <div class="section-body">
+            <p>Üst üste namaz kıldığınız günler streak olarak sayılır. Tüm 5 vakit namazı kılarsanız o gün streak'e eklenir.</p>
+            <p>Streak kartı ana ekranda görüntülenir.</p>
+        </div>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">✨</span>
+            <span class="section-title">Özel Günler</span>
+        </div>
+        <div class="section-body">
+            <p>Kandil geceleri, Ramazan, Kurban Bayramı gibi özel İslami günler otomatik olarak gösterilir. Her özel gün için açıklama, önerilen ibadetler ve dualar mevcuttur.</p>
+        </div>
+    </div>
+
+    <!-- Section 10 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">⚙️</span>
+            <span class="section-title">Ayarlar</span>
+        </div>
+        <div class="section-body">
+            <p>Yazı boyutunu küçük, orta veya büyük olarak ayarlayabilirsiniz. Konum iznini yönetebilir veya manuel konum girebilirsiniz.</p>
+            <p>Mazeret bildirimi ile hastalık veya seyahat durumunda namazları mazeret olarak işaretleyebilirsiniz. Verilerinizi yedekleyip geri yükleyebilirsiniz.</p>
+        </div>
+    </div>
+
+    <!-- Section 11 -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-icon">💾</span>
+            <span class="section-title">Veri Yedekleme ve Geri Yükleme</span>
+        </div>
+        <div class="section-body">
+            <p>Namaz geçmişinizi Ayarlar → Veri Yönetimi bölümünden yedekleyebilirsiniz. Yedek dosyasını Google Drive, WhatsApp veya e-posta ile kaydedebilirsiniz.</p>
+            <p>Yeni bir cihaza geçtiğinizde aynı bölümden yedeğinizi geri yükleyebilirsiniz.</p>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact">
+        <h2>Sorunuz mu var?</h2>
+        <p>Yukarıdaki adımlar sorununuzu çözmediyse bizimle iletişime geçin. En kısa sürede yardımcı olacağız.</p>
+        <a href="mailto:gulerayh@gmail.com">📧 gulerayh@gmail.com</a>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 NakitTech · Namaz Vakti · nl.nakittech.namazvakti</p>
+</footer>
+
+</body>
+</html>
