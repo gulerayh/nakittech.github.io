@@ -125,7 +125,42 @@
             color: #8b95a8;
             margin-bottom: 24px;
         }
-        footer {
+        .download-hero {
+            background: #E8192C;
+            padding: 24px 24px;
+            text-align: center;
+        }
+        .download-tagline {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000000;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.3px;
+            transition: transform 0.15s, background 0.15s;
+        }
+        .app-store-btn:hover {
+            background: #1a1a1a;
+            transform: scale(1.03);
+        }
+        .download-note {
+            margin-top: 10px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+        }
+        
             text-align: center;
             padding: 24px;
             font-size: 13px;
@@ -141,6 +176,15 @@
     <h1>Cup<span>2026</span></h1>
     <p>Support · Destek</p>
 </header>
+
+<div class="download-hero">
+    <div class="download-tagline">Get the app</div>
+    <a href="https://apps.apple.com/us/app/cup2026/id6773434456" class="app-store-btn" target="_blank">
+        <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+    </a>
+    <div class="download-note">Free · English & Turkish · iOS</div>
+</div>
 
 <div class="container">
 
@@ -184,7 +228,7 @@
 
             <div class="faq-item">
                 <div class="faq-q">Why does the AI Commentator require watching an ad?</div>
-                <div class="faq-a">The AI Commentator uses real AI technology that has a small cost per generation. You get 1 free generation per day. When you run out, watch a short ad to unlock 1 more. Thank you for your support!</div>
+                <div class="faq-a">The AI Commentator uses real AI technology that has a small cost per generation. You get 1 free generation per day. Watch a short ad to unlock up to 2 more. Thank you for your support!</div>
             </div>
 
             <div class="faq-item">
@@ -204,7 +248,7 @@
 
             <div class="faq-item">
                 <div class="faq-q">How do I request deletion of my data?</div>
-                <div class="faq-a">Email us at gulerayh@gmail.com and we will delete your data within 30 days. You can also uninstall the app to remove all locally stored data from your device.</div>
+                <div class="faq-a">Email us at privacy@nakittech.nl and we will delete your data within 30 days. You can also uninstall the app to remove all locally stored data from your device.</div>
             </div>
         </div>
 
@@ -213,7 +257,7 @@
             <h2>Get in Touch</h2>
             <p>Having trouble with the app? Found a bug? We'd love to hear from you.</p>
             <p>Email us and we'll get back to you as soon as possible.</p>
-            <a href="mailto:gulerayh@gmail.com" class="contact-btn">✉️ Contact Support</a>
+            <a href="mailto:support@nakittech.nl" class="contact-btn">✉️ Contact Support</a>
         </div>
 
         <div class="card">
@@ -260,7 +304,7 @@
 
             <div class="faq-item">
                 <div class="faq-q">Yapay Zeka Yorumcu neden reklam izlemeyi gerektiriyor?</div>
-                <div class="faq-a">Yapay Zeka Yorumcu, her yorum için küçük bir maliyet gerektiren gerçek yapay zeka teknolojisi kullanır. Günde 1 ücretsiz yorum hakkınız vardır. Hakkınız bittiğinde kısa bir reklam izleyerek 1 daha alabilirsiniz. Desteğiniz için teşekkürler!</div>
+                <div class="faq-a">Yapay Zeka Yorumcu, her yorum için küçük bir maliyet gerektiren gerçek yapay zeka teknolojisi kullanır. Günde 1 ücretsiz yorum hakkınız vardır. 2 hak daha açmak için kısa bir reklam izleyin. Desteğiniz için teşekkürler!</div>
             </div>
 
             <div class="faq-item">
@@ -280,7 +324,7 @@
 
             <div class="faq-item">
                 <div class="faq-q">Verilerimin silinmesini nasıl talep edebilirim?</div>
-                <div class="faq-a">gulerayh@gmail.com adresine e-posta gönderin, verilerinizi 30 gün içinde sileceğiz. Uygulamayı kaldırarak cihazınızdaki yerel verileri de silebilirsiniz.</div>
+                <div class="faq-a">privacy@nakittech.nl adresine e-posta gönderin, verilerinizi 30 gün içinde sileceğiz. Uygulamayı kaldırarak cihazınızdaki yerel verileri de silebilirsiniz.</div>
             </div>
         </div>
 
@@ -289,7 +333,7 @@
             <h2>Bize Ulaşın</h2>
             <p>Uygulamada sorun mu yaşıyorsunuz? Bir hata mı buldunuz? Sizden haber almaktan memnuniyet duyarız.</p>
             <p>Bize e-posta gönderin, en kısa sürede yanıt vereceğiz.</p>
-            <a href="mailto:gulerayh@gmail.com" class="contact-btn">✉️ Destek ile İletişime Geç</a>
+            <a href="mailto:support@nakittech.nl" class="contact-btn">✉️ Destek ile İletişime Geç</a>
         </div>
 
         <div class="card">
@@ -308,7 +352,7 @@
 
 <footer>
     <p>© 2026 NakitTech · Cup2026 · 
-       <a href="mailto:gulerayh@gmail.com">gulerayh@gmail.com</a>
+       <a href="mailto:support@nakittech.nl">support@nakittech.nl</a>
     </p>
 </footer>
 
