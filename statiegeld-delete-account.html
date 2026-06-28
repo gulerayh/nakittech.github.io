@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statiegeld — Delete Your Account</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F7F6F2;
+      color: #0D1117;
+      line-height: 1.6;
+    }
+    .header {
+      background: #053D30;
+      color: white;
+      padding: 40px 20px 32px;
+      text-align: center;
+    }
+    .header .emoji { font-size: 48px; margin-bottom: 12px; display: block; }
+    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .header p { font-size: 14px; opacity: 0.7; }
+    .lang-switch {
+      display: flex; gap: 12px; justify-content: center;
+      margin-top: 16px;
+    }
+    .lang-switch a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 4px 12px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      border: 0.5px solid rgba(0,0,0,0.08);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0D1117;
+      margin-bottom: 12px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #053D30;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step p { margin: 0; font-size: 15px; color: #0D1117; }
+    .warning-card {
+      background: #FEF3C7;
+      border-radius: 12px;
+      border: 1px solid #F59E0B;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #7D6608;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 10px 12px;
+      background: #F7F6F2;
+      font-weight: 600;
+      color: #0D1117;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 0.5px solid rgba(0,0,0,0.06);
+      color: #555;
+      vertical-align: top;
+    }
+    .badge-deleted {
+      background: #FDEDEC;
+      color: #A32D2D;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-kept {
+      background: #FEF9E7;
+      color: #7D6608;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .contact-card {
+      background: #053D30;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 8px;
+    }
+    .contact-card p { font-size: 14px; opacity: 0.8; margin-bottom: 12px; }
+    .contact-card a {
+      color: #7FFFC4;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+      margin-top: 28px;
+    }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <span class="emoji">🫙</span>
+  <h1>Statiegeld</h1>
+  <p>Account Deletion — Nakit Tech</p>
+  <div class="lang-switch">
+    <a href="#" onclick="setLang('en')">🇬🇧 English</a>
+    <a href="#" onclick="setLang('nl')">🇳🇱 Nederlands</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ENGLISH -->
+  <div class="lang-section active" id="lang-en">
+
+    <div class="section-title">Delete Your Account</div>
+
+    <div class="warning-card">
+      ⚠️ <strong>This action is permanent.</strong> Deleting your account cannot be undone. All your personal data will be permanently removed from our systems.
+    </div>
+
+    <div class="card">
+      <h2>How to delete your account in the app</h2>
+      <div class="step">
+        <div class="step-number">1</div>
+        <p>Open the <strong>Statiegeld</strong> app on your device</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <p>Tap <strong>Settings</strong> in the bottom navigation bar</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <p>Scroll down and tap <strong>Account Management</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <p>Tap <strong>Delete account</strong> and confirm</p>
+      </div>
+      <p style="margin-top:8px; color:#888; font-size:13px;">Your account and all associated data will be permanently deleted immediately.</p>
+    </div>
+
+    <div class="card">
+      <h2>What data is deleted?</h2>
+      <table class="data-table">
+        <tr>
+          <th>Data type</th>
+          <th>Action</th>
+          <th>Retention</th>
+        </tr>
+        <tr>
+          <td>Your profile (name, email)</td>
+          <td><span class="badge-deleted">Deleted</span></td>
+          <td>Immediately</td>
+        </tr>
+        <tr>
+          <td>Your tally entries</td>
+          <td><span class="badge-deleted">Deleted</span></td>
+          <td>Immediately</td>
+        </tr>
+        <tr>
+          <td>Your membership in houses</td>
+          <td><span class="badge-deleted">Deleted</span></td>
+          <td>Immediately</td>
+        </tr>
+        <tr>
+          <td>Your points & achievements</td>
+          <td><span class="badge-deleted">Deleted</span></td>
+          <td>Immediately</td>
+        </tr>
+        <tr>
+          <td>Houses you created (if admin)</td>
+          <td><span class="badge-deleted">Deleted</span></td>
+          <td>Immediately</td>
+        </tr>
+        <tr>
+          <td>House activity log entries</td>
+          <td><span class="badge-kept">Anonymized</span></td>
+          <td>30 days</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Can't access the app?</h2>
+      <p>If you can no longer access your account, contact us and we will manually delete your data within 30 days.</p>
+    </div>
+
+    <div class="section-title">Request deletion by email</div>
+    <div class="contact-card">
+      <p>Send us your account email address and we'll delete your data within 30 days.</p>
+      <a href="mailto:gulerayh@gmail.com?subject=Account Deletion Request — Statiegeld">gulerayh@gmail.com</a>
+    </div>
+
+  </div>
+
+  <!-- DUTCH -->
+  <div class="lang-section" id="lang-nl">
+
+    <div class="section-title">Account Verwijderen</div>
+
+    <div class="warning-card">
+      ⚠️ <strong>Deze actie is permanent.</strong> Het verwijderen van je account kan niet ongedaan worden gemaakt. Al je persoonlijke gegevens worden permanent verwijderd uit onze systemen.
+    </div>
+
+    <div class="card">
+      <h2>Account verwijderen in de app</h2>
+      <div class="step">
+        <div class="step-number">1</div>
+        <p>Open de <strong>Statiegeld</strong>-app op je apparaat</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <p>Tik op <strong>Instellingen</strong> in de onderste navigatiebalk</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <p>Scroll naar beneden en tik op <strong>Accountbeheer</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <p>Tik op <strong>Account verwijderen</strong> en bevestig</p>
+      </div>
+      <p style="margin-top:8px; color:#888; font-size:13px;">Je account en alle bijbehorende gegevens worden onmiddellijk permanent verwijderd.</p>
+    </div>
+
+    <div class="card">
+      <h2>Welke gegevens worden verwijderd?</h2>
+      <table class="data-table">
+        <tr>
+          <th>Gegevenstype</th>
+          <th>Actie</th>
+          <th>Bewaartermijn</th>
+        </tr>
+        <tr>
+          <td>Je profiel (naam, e-mail)</td>
+          <td><span class="badge-deleted">Verwijderd</span></td>
+          <td>Onmiddellijk</td>
+        </tr>
+        <tr>
+          <td>Je tally-invoeren</td>
+          <td><span class="badge-deleted">Verwijderd</span></td>
+          <td>Onmiddellijk</td>
+        </tr>
+        <tr>
+          <td>Je lidmaatschap in huizen</td>
+          <td><span class="badge-deleted">Verwijderd</span></td>
+          <td>Onmiddellijk</td>
+        </tr>
+        <tr>
+          <td>Je punten & prestaties</td>
+          <td><span class="badge-deleted">Verwijderd</span></td>
+          <td>Onmiddellijk</td>
+        </tr>
+        <tr>
+          <td>Huizen die je hebt aangemaakt (als beheerder)</td>
+          <td><span class="badge-deleted">Verwijderd</span></td>
+          <td>Onmiddellijk</td>
+        </tr>
+        <tr>
+          <td>Activiteitenlog van het huis</td>
+          <td><span class="badge-kept">Geanonimiseerd</span></td>
+          <td>30 dagen</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Geen toegang tot de app?</h2>
+      <p>Als je geen toegang meer hebt tot je account, neem dan contact met ons op en we verwijderen je gegevens binnen 30 dagen handmatig.</p>
+    </div>
+
+    <div class="section-title">Verwijdering aanvragen via e-mail</div>
+    <div class="contact-card">
+      <p>Stuur ons je account e-mailadres en we verwijderen je gegevens binnen 30 dagen.</p>
+      <a href="mailto:gulerayh@gmail.com?subject=Verzoek tot accountverwijdering — Statiegeld">gulerayh@gmail.com</a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 Nakit Tech ·
+    <a href="https://nakittech.nl/statiegeld-privacy.html" style="color:#0F6E56;">Privacy Policy</a>
+    ·
+    <a href="https://nakittech.nl/statiegeld-support.html" style="color:#0F6E56;">Support</a>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+  }
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.startsWith('nl')) setLang('nl');
+</script>
+
+</body>
+</html>
