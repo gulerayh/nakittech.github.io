@@ -1,210 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Statiegeld — Support</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #3d3d3a; background: #fff; }
-    .header { background: #0F6E56; padding: 40px 24px 32px; text-align: center; }
-    .header .logo { font-size: 48px; margin-bottom: 12px; }
-    .header h1 { color: #fff; font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-    .header p { color: rgba(255,255,255,0.8); font-size: 14px; }
-    .lang-switch { display: flex; justify-content: center; gap: 12px; padding: 16px; background: #f5f5f5; }
-    .lang-btn { padding: 8px 20px; border-radius: 20px; border: 1.5px solid #0F6E56; background: #fff; color: #0F6E56; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; }
-    .lang-btn.active { background: #0F6E56; color: #fff; }
-    .container { max-width: 680px; margin: 0 auto; padding: 40px 24px 80px; }
-    h2 { font-size: 18px; font-weight: 600; color: #0F6E56; margin-top: 32px; margin-bottom: 12px; }
-    h3 { font-size: 15px; font-weight: 600; color: #3d3d3a; margin-top: 20px; margin-bottom: 8px; }
-    p { font-size: 15px; line-height: 1.7; color: #73726c; margin-bottom: 12px; }
-    a { color: #0F6E56; }
-    .contact-card { background: #E1F5EE; border-radius: 16px; padding: 24px; margin-top: 32px; text-align: center; }
-    .contact-card h3 { color: #0F6E56; margin-top: 0; }
-    .contact-card a { font-size: 16px; font-weight: 600; }
-    .faq-item { border-bottom: 1px solid #f0f0f0; padding: 16px 0; }
-    .footer { text-align: center; padding: 32px 24px; font-size: 13px; color: #73726c; border-top: 1px solid #f0f0f0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F7F6F2;
+      color: #0D1117;
+      line-height: 1.6;
+    }
+    .header {
+      background: #053D30;
+      color: white;
+      padding: 40px 20px 32px;
+      text-align: center;
+    }
+    .header .emoji { font-size: 48px; margin-bottom: 12px; display: block; }
+    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .header p { font-size: 14px; opacity: 0.7; }
+    .lang-switch {
+      display: flex; gap: 12px; justify-content: center;
+      margin-top: 16px;
+    }
+    .lang-switch a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 13px;
+      padding: 4px 12px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+    }
+    .lang-switch a:hover { background: rgba(255,255,255,0.1); }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+    .disclaimer {
+      background: #fff;
+      border-radius: 12px;
+      border-left: 4px solid #0F6E56;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      border: 0.5px solid rgba(0,0,0,0.08);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0D1117;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-question::after {
+      content: '›';
+      font-size: 20px;
+      color: #0F6E56;
+      transform: rotate(90deg);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(270deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 16px 16px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      border-top: 0.5px solid rgba(0,0,0,0.06);
+      padding-top: 12px;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .contact-card {
+      background: #053D30;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      margin-top: 8px;
+    }
+    .contact-card p { font-size: 14px; opacity: 0.8; margin-bottom: 12px; }
+    .contact-card a {
+      color: #7FFFC4;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    .privacy-link {
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+      color: #0F6E56;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+    }
     .lang-section { display: none; }
     .lang-section.active { display: block; }
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="logo">🫙</div>
-    <h1>Statiegeld</h1>
-    <p>Support</p>
-  </div>
 
+<div class="header">
+  <span class="emoji">🫙</span>
+  <h1>Statiegeld</h1>
+  <p>Recycle &amp; Deposit Tracker</p>
   <div class="lang-switch">
-    <a href="#" class="lang-btn active" onclick="switchLang('en'); return false;">🇬🇧 English</a>
-    <a href="#" class="lang-btn" onclick="switchLang('nl'); return false;">🇳🇱 Nederlands</a>
+    <a href="#" onclick="setLang('en')">🇬🇧 English</a>
+    <a href="#" onclick="setLang('nl')">🇳🇱 Nederlands</a>
   </div>
+</div>
+
+<div class="container">
 
   <!-- ENGLISH -->
-  <div id="lang-en" class="lang-section active">
-    <div class="container">
-    <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:12px;padding:16px;margin-bottom:24px;">
-      <p style="font-size:13px;color:#5D4037;line-height:1.6;margin:0;"><strong>Disclaimer:</strong> Statiegeld is not a financial app. We only provide a platform to track recycling and deposit actions. We do not accept any financial responsibility. | Statiegeld is geen financiele app. Wij bieden alleen een platform om recycling- en statiegeldacties bij te houden. Wij accepteren geen enkele financiele verantwoordelijkheid.</p>
+  <div class="lang-section active" id="lang-en">
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> Statiegeld is not a financial app. We only provide a platform to track recycling and deposit actions. We do not accept any financial responsibility.
     </div>
 
-      <h2>Frequently Asked Questions</h2>
+    <div class="section-title">Frequently Asked Questions</div>
 
-      <div class="faq-item">
-        <h3>How do I create a house?</h3>
-        <p>Open the app, tap "Create house", enter a house name and your display name. Share the 6-character invite code with your housemates so they can join.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I join an existing house?</h3>
-        <p>Tap "Join house" on the login screen and enter the 6-character invite code from your housemate.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I add bottles or cans?</h3>
-        <p>On the dashboard, tap the + button next to a housemate's name. Select the item type and quantity. You have 5 seconds to undo if you made a mistake.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I log a return?</h3>
-        <p>Tap "Log a return" on the dashboard. Enter the total amount received from the deposit machine. The app will automatically split the amount proportionally between housemates.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Can I belong to multiple houses?</h3>
-        <p>Yes. Tap the house name on the dashboard to switch between houses or add another house.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I set a default house?</h3>
-        <p>Tap the house name → tap "Set default" next to the house you want to open by default on login.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I remove a housemate?</h3>
-        <p>Go to Settings → Roommates. As an admin, you can remove members by tapping the Delete button next to their name.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How do I delete my account?</h3>
-        <p>Go to Settings → scroll to Danger Zone → tap "Delete account". This permanently deletes your account and all associated data.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>I forgot my password. What do I do?</h3>
-        <p>On the login screen, tap "Forgot password?" and enter your email address. You'll receive a reset link within a few minutes. Also check your spam folder.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What deposit values does the app use?</h3>
-        <p>The app uses the current Dutch statiegeld values: €0.15 for cans and small bottles, €0.25 for large bottles, and €5.10 for a standard crate (24 bottles + crate deposit).</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Is my data stored securely?</h3>
-        <p>Yes. All data is stored in the European Union (Netherlands) via Google Firebase and is encrypted in transit and at rest. We comply with GDPR regulations.</p>
-      </div>
-
-      <div class="contact-card">
-        <h3>Still need help?</h3>
-        <p>Contact us and we'll get back to you as soon as possible.</p>
-        <a href="mailto:support@nakittech.nl">support@nakittech.nl</a>
-      </div>
-
-      <h2>Privacy</h2>
-      <p>Read our full <a href="statiegeld-privacy.html">Privacy Policy</a>.</p>
+    <div class="faq-item">
+      <div class="faq-question">How do I create a house?</div>
+      <div class="faq-answer">Open the app, tap "Create house", enter a house name and your display name. Share the invite code with your housemates so they can join.</div>
     </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I join an existing house?</div>
+      <div class="faq-answer">Tap "Join house" on the login screen and enter the invite code from your housemate.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I add bottles or cans?</div>
+      <div class="faq-answer">On the dashboard, tap the + button next to a housemate's name. Select the item type and quantity. You have 5 seconds to undo if you made a mistake.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I log a return?</div>
+      <div class="faq-answer">Tap "Log a return" on the dashboard. Enter the total amount received from the deposit machine. The app will automatically split the amount proportionally between housemates.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I belong to multiple houses?</div>
+      <div class="faq-answer">Yes. Tap the house name on the dashboard to switch between houses or add another house.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I remove a housemate?</div>
+      <div class="faq-answer">Go to Settings → Roommates. As an admin, you can remove members by tapping the delete button next to their name.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I delete my account?</div>
+      <div class="faq-answer">Go to Settings → Account Management → tap "Delete account". This permanently deletes your account and all associated data.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">I forgot my password. What do I do?</div>
+      <div class="faq-answer">On the login screen, tap "Forgot password?" and enter your email address. You'll receive a reset link within a few minutes. Also check your spam folder.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What deposit values does the app use?</div>
+      <div class="faq-answer">The app uses the current Dutch statiegeld values: €0.15 for cans and small bottles, €0.25 for large bottles, and €5.10 for a standard crate (24 bottles + crate deposit).</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What is the House Planner?</div>
+      <div class="faq-answer">The House Planner is a shared note board for your house. Any member can add notes — shopping lists, reminders, announcements. Notes can be pinned, locked, or marked as complete. Completed notes are permanently deleted and not retained by our systems.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How does The Bin work?</div>
+      <div class="faq-answer">The Bin screen lets you track which bins need emptying. Tap a bin to mark it as full, assign it to a housemate, or mark it as emptied. Admins can configure up to 6 favorite bins shown on the main screen. All bins (including extra types like textiles and garden waste) are accessible via Services &amp; Facilities.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I set up waste collection dates?</div>
+      <div class="faq-answer">Go to The Bin → Services &amp; Facilities → Pickup schedule. Enter your postcode in Settings → House, and the app will automatically fetch your local collection schedule. If your area is not supported, you can enter a manual recurring schedule (e.g. every 2 weeks on Thursday).</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do points and rewards work?</div>
+      <div class="faq-answer">You earn points by emptying bins (+10 pts), logging tallies (+5 pts), and completing Sjaak tasks (+20 pts). House admins can set up reward tiers in Settings → House → Rewards. When you have enough points, tap "Claim" in the Rewards section on the Dashboard to claim your reward.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What are achievements?</div>
+      <div class="faq-answer">Achievements are badges you earn by reaching milestones — like emptying 20 bins (Bin Hero), completing Sjaak 5 times (Sjaak Survivor), or earning 500 points (Point Collector). View your achievements on your Profile screen.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Where can I find the house WiFi password?</div>
+      <div class="faq-answer">Go to Settings → House → WiFi password. The admin can set the WiFi password so all housemates can easily find it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is my data stored securely?</div>
+      <div class="faq-answer">Yes. All data is stored in the European Union (Netherlands) via Google Firebase and is encrypted in transit and at rest. We comply with GDPR regulations. You can delete all your data at any time via Settings → Account Management → Delete account.</div>
+    </div>
+
+    <div class="section-title">Still need help?</div>
+    <div class="contact-card">
+      <p>Contact us and we'll get back to you as soon as possible.</p>
+      <a href="mailto:support@nakittech.nl">support@nakittech.nl</a>
+    </div>
+
+    <a class="privacy-link" href="https://nakittech.nl/statiegeld-privacy.html">📄 Read our Privacy Policy</a>
+
   </div>
 
   <!-- DUTCH -->
-  <div id="lang-nl" class="lang-section">
-    <div class="container">
-    <div style="background:#FFF8E1;border:1px solid #FFE082;border-radius:12px;padding:16px;margin-bottom:24px;">
-      <p style="font-size:13px;color:#5D4037;line-height:1.6;margin:0;"><strong>Disclaimer:</strong> Statiegeld is not a financial app. We only provide a platform to track recycling and deposit actions. We do not accept any financial responsibility. | Statiegeld is geen financiele app. Wij bieden alleen een platform om recycling- en statiegeldacties bij te houden. Wij accepteren geen enkele financiele verantwoordelijkheid.</p>
+  <div class="lang-section" id="lang-nl">
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> Statiegeld is geen financiële app. Wij bieden alleen een platform om recycling- en statiegeldacties bij te houden. Wij accepteren geen enkele financiële verantwoordelijkheid.
     </div>
 
+    <div class="section-title">Veelgestelde vragen</div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe maak ik een huis aan?</div>
+      <div class="faq-answer">Open de app, tik op "Huis aanmaken", voer een huisnaam en je weergavenaam in. Deel de uitnodigingscode met je huisgenoten zodat zij kunnen joinen.</div>
     </div>
-    <div class="container">
-      <h2>Veelgestelde vragen</h2>
 
-      <div class="faq-item">
-        <h3>Hoe maak ik een huis aan?</h3>
-        <p>Open de app, tik op "Huis aanmaken", voer een huisnaam en je weergavenaam in. Deel de 6-tekens uitnodigingscode met je huisgenoten zodat zij kunnen joinen.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Hoe join ik een bestaand huis?</h3>
-        <p>Tik op "Huis joinen" in het inlogscherm en voer de 6-tekens uitnodigingscode van je huisgenoot in.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Hoe voeg ik flessen of blikjes toe?</h3>
-        <p>Tik op de + knop naast de naam van een huisgenoot op het dashboard. Selecteer het type item en de hoeveelheid. Je hebt 5 seconden om ongedaan te maken als je een fout hebt gemaakt.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Hoe registreer ik een inlevering?</h3>
-        <p>Tik op "Inlevering registreren" op het dashboard. Voer het totale bedrag in dat je hebt ontvangen van de emballagemachine. De app verdeelt het bedrag automatisch proportioneel tussen huisgenoten.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Kan ik lid zijn van meerdere huizen?</h3>
-        <p>Ja. Tik op de huisnaam op het dashboard om van huis te wisselen of een ander huis toe te voegen.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Hoe stel ik een standaardhuis in?</h3>
-        <p>Tik op de huisnaam → tik op "Standaard" naast het huis dat je standaard wilt openen bij inloggen.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Hoe verwijder ik een huisgenoot?</h3>
-        <p>Ga naar Instellingen → Huisgenoten. Als beheerder kun je leden verwijderen door op de Verwijder-knop naast hun naam te tikken.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Hoe verwijder ik mijn account?</h3>
-        <p>Ga naar Instellingen → scroll naar Gevarenzone → tik op "Account verwijderen". Dit verwijdert je account en alle bijbehorende gegevens permanent.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Ik ben mijn wachtwoord vergeten. Wat nu?</h3>
-        <p>Tik op "Wachtwoord vergeten?" op het inlogscherm en voer je e-mailadres in. Je ontvangt binnen enkele minuten een resetlink. Controleer ook je spammap.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Welke statiegeldwaarden gebruikt de app?</h3>
-        <p>De app gebruikt de huidige Nederlandse statiegeldwaarden: €0,15 voor blikjes en kleine flesjes, €0,25 voor grote flesjes, en €5,10 voor een standaard kratje (24 flesjes + kratdeposito).</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Worden mijn gegevens veilig opgeslagen?</h3>
-        <p>Ja. Alle gegevens worden opgeslagen in de Europese Unie (Nederland) via Google Firebase en zijn versleuteld tijdens overdracht en opslag. We voldoen aan de AVG-regelgeving.</p>
-      </div>
-
-      <div class="contact-card">
-        <h3>Nog steeds hulp nodig?</h3>
-        <p>Neem contact met ons op en we reageren zo snel mogelijk.</p>
-        <a href="mailto:support@nakittech.nl">support@nakittech.nl</a>
-      </div>
-
-      <h2>Privacy</h2>
-      <p>Lees ons volledige <a href="statiegeld-privacy.html">Privacybeleid</a>.</p>
+    <div class="faq-item">
+      <div class="faq-question">Hoe join ik een bestaand huis?</div>
+      <div class="faq-answer">Tik op "Huis joinen" in het inlogscherm en voer de uitnodigingscode van je huisgenoot in.</div>
     </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe voeg ik flessen of blikjes toe?</div>
+      <div class="faq-answer">Tik op de + knop naast de naam van een huisgenoot op het dashboard. Selecteer het type item en de hoeveelheid. Je hebt 5 seconden om ongedaan te maken als je een fout hebt gemaakt.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe registreer ik een inlevering?</div>
+      <div class="faq-answer">Tik op "Inlevering registreren" op het dashboard. Voer het totale bedrag in dat je hebt ontvangen van de emballagemachine. De app verdeelt het bedrag automatisch proportioneel tussen huisgenoten.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Kan ik lid zijn van meerdere huizen?</div>
+      <div class="faq-answer">Ja. Tik op de huisnaam op het dashboard om van huis te wisselen of een ander huis toe te voegen.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe verwijder ik een huisgenoot?</div>
+      <div class="faq-answer">Ga naar Instellingen → Huisgenoten. Als beheerder kun je leden verwijderen door op de verwijderknop naast hun naam te tikken.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe verwijder ik mijn account?</div>
+      <div class="faq-answer">Ga naar Instellingen → Accountbeheer → tik op "Account verwijderen". Dit verwijdert je account en alle bijbehorende gegevens permanent.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Ik ben mijn wachtwoord vergeten. Wat nu?</div>
+      <div class="faq-answer">Tik op "Wachtwoord vergeten?" op het inlogscherm en voer je e-mailadres in. Je ontvangt binnen enkele minuten een resetlink. Controleer ook je spammap.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Welke statiegeldwaarden gebruikt de app?</div>
+      <div class="faq-answer">De app gebruikt de huidige Nederlandse statiegeldwaarden: €0,15 voor blikjes en kleine flesjes, €0,25 voor grote flesjes, en €5,10 voor een standaard kratje (24 flesjes + kratdeposito).</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Wat is de Huis Planner?</div>
+      <div class="faq-answer">De Huis Planner is een gedeeld notitiebord voor je huis. Elk lid kan notities toevoegen — boodschappenlijstjes, herinneringen, mededelingen. Notities kunnen worden vastgezet, vergrendeld of als voltooid gemarkeerd. Voltooide notities worden permanent verwijderd en niet bewaard in onze systemen.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe werkt De Bak?</div>
+      <div class="faq-answer">Het Bak-scherm laat je bijhouden welke vuilnisbakken geleegd moeten worden. Tik op een bak om hem als vol te markeren, toe te wijzen aan een huisgenoot of als geleegd te markeren. Beheerders kunnen maximaal 6 favoriete bakken instellen die op het hoofdscherm worden weergegeven. Alle bakken (inclusief extra typen zoals textiel en tuinafval) zijn toegankelijk via Services &amp; Voorzieningen.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe stel ik ophaaldata in?</div>
+      <div class="faq-answer">Ga naar De Bak → Services &amp; Voorzieningen → Ophaalrooster. Voer je postcode in via Instellingen → Huis, en de app haalt automatisch je lokale ophaalschema op. Als jouw gemeente niet wordt ondersteund, kun je handmatig een terugkerend schema invoeren (bijv. elke 2 weken op donderdag).</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Hoe werken punten en beloningen?</div>
+      <div class="faq-answer">Je verdient punten door bakken te legen (+10 pts), tallies toe te voegen (+5 pts) en Sjaak-taken te voltooien (+20 pts). Huisbeheerders kunnen beloningsniveaus instellen via Instellingen → Huis → Beloningen. Als je genoeg punten hebt, tik je op "Claim" in de Beloningen-sectie op het dashboard om je beloning te claimen.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Wat zijn prestaties?</div>
+      <div class="faq-answer">Prestaties zijn badges die je verdient door mijlpalen te bereiken — zoals 20 bakken legen (Bak Held), Sjaak 5 keer voltooien (Sjaak Survivor) of 500 punten verdienen (Puntenspaarder). Bekijk je prestaties op je profielscherm.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Waar vind ik het WiFi-wachtwoord van het huis?</div>
+      <div class="faq-answer">Ga naar Instellingen → Huis → WiFi-wachtwoord. De beheerder kan het WiFi-wachtwoord instellen zodat alle huisgenoten het gemakkelijk kunnen vinden.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Worden mijn gegevens veilig opgeslagen?</div>
+      <div class="faq-answer">Ja. Alle gegevens worden opgeslagen in de Europese Unie (Nederland) via Google Firebase en zijn versleuteld tijdens overdracht en opslag. We voldoen aan de AVG-regelgeving. Je kunt al je gegevens op elk moment verwijderen via Instellingen → Accountbeheer → Account verwijderen.</div>
+    </div>
+
+    <div class="section-title">Nog steeds hulp nodig?</div>
+    <div class="contact-card">
+      <p>Neem contact met ons op en we reageren zo snel mogelijk.</p>
+      <a href="mailto:support@nakittech.nl">support@nakittech.nl</a>
+    </div>
+
+    <a class="privacy-link" href="https://nakittech.nl/statiegeld-privacy.html">📄 Lees ons Privacybeleid</a>
+
   </div>
 
   <div class="footer">
-    &copy; 2026 Nakit Tech · <a href="statiegeld-privacy.html">Privacy Policy / Privacybeleid</a>
+    © 2026 Nakit Tech · 
+    <a href="https://nakittech.nl/statiegeld-privacy.html" style="color:#0F6E56;">Privacy Policy</a>
   </div>
 
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-      document.getElementById('lang-' + lang).classList.add('active');
-      document.querySelector('[onclick="switchLang(\'' + lang + '\'); return false;"]').classList.add('active');
-    }
-    const browserLang = navigator.language.startsWith('nl') ? 'nl' : 'en';
-    switchLang(browserLang);
-  </script>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  // Auto-detect language
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.startsWith('nl')) setLang('nl');
+</script>
+
 </body>
 </html>
